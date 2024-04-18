@@ -1,0 +1,84 @@
+/* Declare color tags */
+:root {
+    --clr-neon: hsl(190 100% 54%);
+    --clr-bg: hsl(0, 0%, 0%);
+    --clr-light: hsl(0, 0%, 100%);
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--clr-bg);
+    font-family: 'Balsamiq Sans', sans-serif;
+    color: var(--clr-neon);
+    padding-right: 10em;
+}
+
+.neon-button {
+    font-size: 4em;
+
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon) 4px;
+    border: var(--clr-neon) 0.185em solid; /*4px=0.125em*/
+    padding: 0.25em 1em;
+    border-radius: 5px;
+    
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.5), 0 0 0.25em currentColor;
+
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon); /*inset is use for what gonna happend in the border, etc */
+
+    
+
+    /* Transform after hover */
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition: transform 0.5s; background-color: 1s; color: 0.7s;
+
+
+    position: relative;
+
+}
+
+.neon-button::before {
+    content: '';
+    position: absolute;
+    background-color: var(--clr-neon);
+    color: var(--clr-neon);
+    color: white;
+    pointer-events: none;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* The reflection css code for reflection of the element or button */
+    transform:  perspective(3em) rotateX(45deg) scale(1, 0.35);
+    filter: blur(2em);
+
+    opacity: 0.7;
+}
+
+
+.neon-button:hover {
+    transform: translateY(-15px);
+    transform: scale(1.05);
+    background-color: var(--clr-neon);
+    color: var(--clr-light);
+    opacity: 1.25;
+
+
+
+    
+}
